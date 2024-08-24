@@ -1,0 +1,371 @@
+{
+    "main": [
+      {
+        "category": "Du'as for the Ummah",
+        "image": "assets/images/ummah.png",
+        "duas": [
+          {
+            "title": "Allah is Enough for Us",
+            "arabic": "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ",
+            "transliteration": "Hasbunallāhu wa ni mal Wakil.",
+            "translation": "Allah is enough for us and He is the Best Protector.",
+            "hadith": "Ibn 'Abbās (radiy Allahü 'anhuma) narrated: '[The above] was said by Ibrāhīm ('alayhis-salām) when he was thrown into the fire; and it was said by Muhammad when (the hypocrites) said, 'Your enemies have mobilised their forces against you, so fear them, but this only increased them in faith and they replied: 'Allah is enough for us and He is the Best Protector (3:173).' (Bukhārī 4563)"
+          },
+          {
+            "title": "Seeking Refuge From the Enemy's Evil",
+            "arabic": "اللَّهُمَّ إِنَّا نَجْعَلُكَ فِي نُحُوْرِهِمْ ، وَنَعُوذُ بِكَ مِنْ شُرُوْرِهِمْ",
+            "transliteration": "Allāhumma innā naj' aluka fi nuḥūrihim, wa na'ūdhu bika min shurūrihim.",
+            "translation": "O Allah, we make You our shield against them and we seek refuge in You from their evil.",
+            "hadith": "When the Messenger of Allah was apprehensive of [a group] of people, he would say: [the above]. (Abū Dāwūd 1537)"
+          },
+          {
+            "title": "When Meeting the Enemy",
+            "arabic": "اللَّهُمَّ أَنْتَ عَضُدِي وَنَاصِرِي",
+            "transliteration": "Allāhumma anta 'aḍudī wa nāṣirī.",
+            "translation": "O Allah, You are my Supporter and my Helper.",
+            "hadith": "The Prophet (ﷺ) used to say [the above] when meeting the enemy. (Tirmidhi)"
+          },
+          {
+            "title": "Pray for the Oppressed",
+            "arabic": "اللَّهُمَّ انْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ",
+            "transliteration": "Allāhumma nṣurnā 'ala al-qawm al-kāfirīn.",
+            "translation": "O Allah, grant us victory over the disbelieving people.",
+            "hadith": "The Prophet (ﷺ) used to say [the above] when praying for the oppressed. (Bukhari)"
+          },
+          {
+            "title": "Du'a for the Poor & Needy",
+            "arabic": "اللَّهُمَّ اغْفِرْ لِلْمُسْلِمِينَ وَالْمُسْلِمَاتِ",
+            "transliteration": "Allāhumma ighfir lil-muslimīn wal-muslimāt.",
+            "translation": "O Allah, forgive the Muslim men and women.",
+            "hadith": "The Prophet (ﷺ) used to say [the above] when praying for the poor and needy. (Tirmidhi)"
+          },
+          {
+            "title": "Du'a for Forgiveness & Ease",
+            "arabic": "اللَّهُمَّ اغْفِرْ لِي وَارْحَمْنِي",
+            "transliteration": "Allāhumma ighfir lī wa irḥamnī.",
+            "translation": "O Allah, forgive me and have mercy on me.",
+            "hadith": "The Prophet (ﷺ) used to say [the above] for forgiveness and ease. (Muslim)"
+          },
+          {
+            "title": "Du'a for Firmness & Victory",
+            "arabic": "رَبَّنَا أَفْرِغْ عَلَيْنَا صَبْرًا وَثَبِّتْ أَقْدَامَنَا",
+            "transliteration": "Rabbana afrigh 'alaynā ṣabran wa thabbit aqdāmanā.",
+            "translation": "Our Lord, pour upon us patience and plant firmly our feet.",
+            "hadith": "The Prophet (ﷺ) used to say [the above] for firmness and victory. (Bukhari)"
+          }
+        ]
+      },
+      {
+        "category": "Before Sleep",
+        "image": "assets/images/before_sleep.png",
+        "duas": [
+          {
+            "title": "Surah al-Sajdah & Surah al-Mulk",
+            "arabic": "سُورَةُ السَّجْدَةِ وَسُورَةُ الْمُلْكِ",
+            "transliteration": "Surah al-Sajdah wa Surah al-Mulk.",
+            "translation": "Recite Surah al-Sajdah and Surah al-Mulk.",
+            "hadith": "The Prophet (ﷺ) used to recite [the above] before sleeping. (Tirmidhi)"
+          },
+          {
+            "title": "Ayat al-Kursi: Exclusive Protection",
+            "arabic": "آيَةُ الْكُرْسِيِ",
+            "transliteration": "Ayat al-Kursi.",
+            "translation": "Recite Ayat al-Kursi for exclusive protection.",
+            "hadith": "The Prophet (ﷺ) said [the above] will protect you. (Bukhari)"
+          },
+          {
+            "title": "Last 2 ayahs of Surah al-Baqarah: Will Suffice You",
+            "arabic": "آخِرُ آيَتَيْنِ مِنْ سُورَةِ الْبَقَرَةِ",
+            "transliteration": "Aakhir ayatayn min Surah al-Baqarah.",
+            "translation": "Recite the last two ayahs of Surah al-Baqarah, they will suffice you.",
+            "hadith": "The Prophet (ﷺ) said [the above] will suffice you. (Bukhari)"
+          }
+        ]
+      },
+      {
+        "category": "Morning",
+        "image": "assets/images/morning.png",
+        "duas": [
+          {
+            "title": "Ayat al-Kursi: The Greatest Protection",
+            "arabic": "آيَةُ الْكُرْسِيِ",
+            "transliteration": "Ayat al-Kursi.",
+            "translation": "Recite Ayat al-Kursi for the greatest protection.",
+            "hadith": "The Prophet (ﷺ) said [the above] will protect you. (Muslim)"
+          },
+          {
+            "title": "Three Quls: To Suffice You in All Your Matters",
+            "arabic": "الْمُعَوِّذَتَيْنِ",
+            "transliteration": "Al-Mu'awwidhatayn.",
+            "translation": "Recite the last three surahs (Qul).",
+            "hadith": "The Prophet (ﷺ) said [the above] will suffice you in all your matters. (Tirmidhi)"
+          },
+          {
+            "title": "Sayyid al-Istighfar: The Best Way of Seeking Forgiveness",
+            "arabic": "سَيِّدُ الاِسْتِغْفَارِ",
+            "transliteration": "Sayyid al-Istighfar.",
+            "translation": "Recite Sayyid al-Istighfar for seeking forgiveness.",
+            "hadith": "The Prophet (ﷺ) said [the above] is the best way of seeking forgiveness. (Bukhari)"
+          },
+          {
+            "title": "Protect Yourself from Anxiety, Laziness & Debt",
+            "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ",
+            "transliteration": "Allāhumma innī a'ūdhu bika minal-hammi wal-ḥazan.",
+            "translation": "O Allah, I seek refuge in You from anxiety, laziness, and debt.",
+            "hadith": "The Prophet (ﷺ) used to seek protection from [the above]. (Muslim)"
+          },
+          {
+            "title": "Renew Your Faith",
+            "arabic": "جَدِّدُوا إِيمَانَكُمْ",
+            "transliteration": "Jaddidū īmānakum.",
+            "translation": "Renew your faith by saying La ilaha illallah.",
+            "hadith": "The Prophet (ﷺ) used to say [the above]. (Muslim)"
+          },
+          {
+            "title": "Ask Allah for a Good Day",
+            "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ هَذَا الْيَوْمِ",
+            "transliteration": "Allāhumma innī as'aluka khayra hādhā al-yawm.",
+            "translation": "O Allah, I ask You for the good of this day.",
+            "hadith": "The Prophet (ﷺ) used to ask for [the above]. (Muslim)"
+          },
+          {
+            "title": "Tasbih, Tahmid and Takbir",
+            "arabic": "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ",
+            "transliteration": "Subḥānallāhi wa biḥamdihi.",
+            "translation": "Glory be to Allah and praise be to Him.",
+            "hadith": "The Prophet (ﷺ) used to recite [the above]. (Bukhari)"
+          }
+        ]
+      },
+      {
+        "category": "Evening",
+        "image": "assets/images/evening.png",
+        "duas": [
+          {
+            "title": "Ayat al-Kursi: The Greatest Protection",
+            "arabic": "آيَةُ الْكُرْسِيِ",
+            "transliteration": "Ayat al-Kursi.",
+            "translation": "Recite Ayat al-Kursi for the greatest protection.",
+            "hadith": "The Prophet (ﷺ) said [the above] will protect you. (Muslim)"
+          },
+          {
+            "title": "Three Quls: To Suffice You in All Your Matters",
+            "arabic": "الْمُعَوِّذَتَيْنِ",
+            "transliteration": "Al-Mu'awwidhatayn.",
+            "translation": "Recite the last three surahs (Qul).",
+            "hadith": "The Prophet (ﷺ) said [the above] will suffice you in all your matters. (Tirmidhi)"
+          },
+          {
+            "title": "Sayyid al-Istighfar: The Best Way of Seeking Forgiveness",
+            "arabic": "سَيِّدُ الاِسْتِغْفَارِ",
+            "transliteration": "Sayyid al-Istighfar.",
+            "translation": "Recite Sayyid al-Istighfar for seeking forgiveness.",
+            "hadith": "The Prophet (ﷺ) said [the above] is the best way of seeking forgiveness. (Bukhari)"
+          },
+          {
+            "title": "Protect Yourself from Anxiety, Laziness & Debt",
+            "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ",
+            "transliteration": "Allāhumma innī a'ūdhu bika minal-hammi wal-ḥazan.",
+            "translation": "O Allah, I seek refuge in You from anxiety, laziness, and debt.",
+            "hadith": "The Prophet (ﷺ) used to seek protection from [the above]. (Muslim)"
+          },
+          {
+            "title": "Renew Your Faith",
+            "arabic": "جَدِّدُوا إِيمَانَكُمْ",
+            "transliteration": "Jaddidū īmānakum.",
+            "translation": "Renew your faith by saying La ilaha illallah.",
+            "hadith": "The Prophet (ﷺ) used to say [the above]. (Muslim)"
+          },
+          {
+            "title": "Ask Allah for a Good Day",
+            "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ هَذَا الْيَوْمِ",
+            "transliteration": "Allāhumma innī as'aluka khayra hādhā al-yawm.",
+            "translation": "O Allah, I ask You for the good of this day.",
+            "hadith": "The Prophet (ﷺ) used to ask for [the above]. (Muslim)"
+          },
+          {
+            "title": "Tasbih, Tahmid and Takbir",
+            "arabic": "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ",
+            "transliteration": "Subḥānallāhi wa biḥamdihi.",
+            "translation": "Glory be to Allah and praise be to Him.",
+            "hadith": "The Prophet (ﷺ) used to recite [the above]. (Bukhari)"
+          }
+        ]
+      },
+      {
+        "category": "Salah",
+        "image": "assets/images/salah.png",
+        "duas": [
+          {
+            "title": "Dua After Salah",
+            "arabic": "اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ",
+            "transliteration": "Allāhumma anta as-salām wa minka as-salām.",
+            "translation": "O Allah, You are Peace and from You comes peace.",
+            "hadith": "The Prophet (ﷺ) used to say [the above] after completing the prayer. (Muslim)"
+          },
+          {
+            "title": "Dua After Salah",
+            "arabic": "أَسْتَغْفِرُ اللَّهَ",
+            "transliteration": "Astaghfirullah.",
+            "translation": "I seek Allah's forgiveness.",
+            "hadith": "The Prophet (ﷺ) used to seek forgiveness [the above] three times after completing the prayer. (Muslim)"
+          },
+          {
+            "title": "Dua After Salah",
+            "arabic": "اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ",
+            "transliteration": "Allāhumma anta as-salām wa minka as-salām.",
+            "translation": "O Allah, You are Peace and from You comes peace.",
+            "hadith": "The Prophet (ﷺ) used to say [the above] after completing the prayer. (Muslim)"
+          }
+        ]
+      },
+      {
+        "category": "After Salah",
+        "image": "assets/images/after_salah.png",
+        "duas": [
+          {
+            "title": "Dua After Salah",
+            "arabic": "اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ",
+            "transliteration": "Allāhumma anta as-salām wa minka as-salām.",
+            "translation": "O Allah, You are Peace and from You comes peace.",
+            "hadith": "The Prophet (ﷺ) used to say [the above] after completing the prayer. (Muslim)"
+          },
+          {
+            "title": "Dua After Salah",
+            "arabic": "أَسْتَغْفِرُ اللَّهَ",
+            "transliteration": "Astaghfirullah.",
+            "translation": "I seek Allah's forgiveness.",
+            "hadith": "The Prophet (ﷺ) used to seek forgiveness [the above] three times after completing the prayer. (Muslim)"
+          },
+          {
+            "title": "Dua After Salah",
+            "arabic": "اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ",
+            "transliteration": "Allāhumma anta as-salām wa minka as-salām.",
+            "translation": "O Allah, You are Peace and from You comes peace.",
+            "hadith": "The Prophet (ﷺ) used to say [the above] after completing the prayer. (Muslim)"
+          }
+        ]
+      },
+      {
+        "category": "Ruqyah & Illness",
+        "image": "assets/images/ruqyah.png",
+        "duas": [
+          {
+            "title": "Ruqyah",
+            "arabic": "اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ",
+            "transliteration": "Allāhumma anta as-salām wa minka as-salām.",
+            "translation": "O Allah, You are Peace and from You comes peace.",
+            "hadith": "The Prophet (ﷺ) used to say [the above] after completing the prayer. (Muslim)"
+          },
+          {
+            "title": "Illness",
+            "arabic": "أَسْتَغْفِرُ اللَّهَ",
+            "transliteration": "Astaghfirullah.",
+            "translation": "I seek Allah's forgiveness.",
+            "hadith": "The Prophet (ﷺ) used to seek forgiveness [the above] three times after completing the prayer. (Muslim)"
+          },
+          {
+            "title": "Dua After Salah",
+            "arabic": "اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ",
+            "transliteration": "Allāhumma anta as-salām wa minka as-salām.",
+            "translation": "O Allah, You are Peace and from You comes peace.",
+            "hadith": "The Prophet (ﷺ) used to say [the above] after completing the prayer. (Muslim)"
+          }
+        ]
+      }
+    ],
+    "other": [
+      {
+        "category": "Waking Up",
+        "image": "assets/images/waking_up.png",
+        "duas": [
+          {
+            "title": "Waking Up Dua",
+            "arabic": "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا",
+            "transliteration": "Alhamdulillah alladhi ahyana.",
+            "translation": "All praise is for Allah who gave us life.",
+            "hadith": "The Prophet (ﷺ) used to say [the above] upon waking up. (Bukhari)"
+          }
+        ]
+      },
+      {
+        "category": "Nightmares",
+        "image": "assets/images/nightmares.png",
+        "duas": [
+          {
+            "title": "Nightmares Dua",
+            "arabic": "أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ",
+            "transliteration": "A'udhu bikalimatillahit-tammati.",
+            "translation": "I seek refuge in the perfect words of Allah.",
+            "hadith": "The Prophet (ﷺ) taught [the above] for protection from nightmares. (Tirmidhi)"
+          }
+        ]
+      },
+      {
+        "category": "Wearing Clothes",
+        "image": "assets/images/clothes.png",
+        "duas": [
+          {
+            "title": "Dua for Wearing Clothes",
+            "arabic": "الْحَمْدُ لِلَّهِ الَّذِي كَسَانِي",
+            "transliteration": "Alhamdulillah alladhi kasani.",
+            "translation": "All praise is for Allah who clothed me.",
+            "hadith": "The Prophet (ﷺ) used to say [the above] when wearing new clothes. (Abu Dawood)"
+          }
+        ]
+      },
+      {
+        "category": "Lavatory & Wudu",
+        "image": "assets/images/wudu.png",
+        "duas": [
+          {
+            "title": "Dua for Wearing Clothes",
+            "arabic": "الْحَمْدُ لِلَّهِ الَّذِي كَسَانِي",
+            "transliteration": "Alhamdulillah alladhi kasani.",
+            "translation": "All praise is for Allah who clothed me.",
+            "hadith": "The Prophet (ﷺ) used to say [the above] when wearing new clothes. (Abu Dawood)"
+          }
+        ]
+      },
+      {
+        "category": "Food & Drink",
+        "image": "assets/images/food_drink.png",
+        "duas": [
+          {
+            "title": "Dua for Wearing Clothes",
+            "arabic": "الْحَمْدُ لِلَّهِ الَّذِي كَسَانِي",
+            "transliteration": "Alhamdulillah alladhi kasani.",
+            "translation": "All praise is for Allah who clothed me.",
+            "hadith": "The Prophet (ﷺ) used to say [the above] when wearing new clothes. (Abu Dawood)"
+          }
+        ]
+      },
+      {
+        "category": "Home",
+        "image": "assets/images/home.png",
+        "duas": [
+          {
+            "title": "Entering Home Dua",
+            "arabic": "بِسْمِ اللَّهِ وَلَجْنَا",
+            "transliteration": "Bismillah walajna.",
+            "translation": "In the name of Allah we enter.",
+            "hadith": "The Prophet (ﷺ) used to say [the above] when entering his home. (Muslim)"
+          }
+        ]
+      },
+      {
+        "category": "Hajj and Umrah",
+        "image": "assets/images/hajj_umrah.png",
+        "duas": [
+          {
+            "title": "Hajj and Umrah Dua",
+            "arabic": "لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ",
+            "transliteration": "Labbayk Allahumma labbayk.",
+            "translation": "Here I am, O Allah, here I am.",
+            "hadith": "The Prophet (ﷺ) used to say [the above] during Hajj and Umrah. (Bukhari)"
+          }
+        ]
+      }
+    ]
+  }
+  

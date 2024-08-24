@@ -1,0 +1,19 @@
+{
+    "surahs": [
+      {
+        "name": "Al-Fatiha",
+        "verses": [
+          {
+            "number": 1,
+            "arabic": "بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ",
+            "urdu": "شروع اللہ کے نام سے جو بڑا مہربان نہایت رحم والا ہے",
+            "hindi": "Shuru Allah ke naam se jo bada meharbaan nihayat reham wala hai",
+            "audio": "assets/audio/surah_1_verse_1.mp3"
+          }
+          // Add more verses here
+        ]
+      }
+      // Add more surahs here
+    ]
+  }
+  
