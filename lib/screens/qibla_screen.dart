@@ -140,7 +140,10 @@ class _QiblaScreenState extends State<QiblaScreen> {
                   children: [
                     Text(
                       'Current Location:',
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.teal[900]),
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.teal[900]),
                     ),
                     if (_currentCity != null)
                       Text(
@@ -150,11 +153,15 @@ class _QiblaScreenState extends State<QiblaScreen> {
                     if (_currentCity == null)
                       Text(
                           'Latitude: ${_currentPosition!.latitude}, Longitude: ${_currentPosition!.longitude}',
-                          style: TextStyle(fontSize: 18, color: Colors.teal[800])),
+                          style:
+                              TextStyle(fontSize: 18, color: Colors.teal[800])),
                     const SizedBox(height: 20),
                     Text(
                       'Qibla Direction:',
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.teal[900]),
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.teal[900]),
                     ),
                     if (_qiblaDirection != null)
                       Stack(
@@ -172,33 +179,71 @@ class _QiblaScreenState extends State<QiblaScreen> {
                               ),
                             ),
                           ),
-                          Icon(
-                            Icons.arrow_upward,
-                            size: 50,
-                            color: Colors.teal[700],
-                          ),
                           Transform.rotate(
-                            angle: ((_qiblaDirection! - _currentHeading) * (math.pi / 180)).toRad(),
-                            child: Container(
-                              width: 280,
-                              height: 280,
-                              alignment: Alignment.topCenter,
-                              child: const Text(
-                                "🕋",
-                                style: TextStyle(fontSize: 24),
-                              ),
+                            angle: ((_qiblaDirection! - _currentHeading) *
+                                (math.pi / 180)),
+                            child: Column(
+                              children: [
+                                const Text(
+                                  "🕋",
+                                  style: TextStyle(fontSize: 24),
+                                ),
+                                Image.asset('assets/images/compass.png'),
+                              ],
                             ),
                           ),
+                          // StreamBuilder<CompassEvent>(
+                          //   stream: FlutterCompass.events,
+                          //   builder: (context, snapshot) {
+                          //     print(snapshot);
+                          //     double? direction = snapshot.data!.heading;
+                          //     print('direction $direction');
+                          //     if (direction != null) {
+                          //       return Transform.rotate(
+                          //         angle: direction * (math.pi / 180) * -1,
+                          //         child: Column(
+                          //           children: [
+                          //             const Text(
+                          //               "🕋",
+                          //               style: TextStyle(fontSize: 24),
+                          //             ),
+                          //             Image.asset('assets/images/compass.png'),
+                          //           ],
+                          //         ),
+                          //       );
+                          //     } else {
+                          //       return Text('No Sensor');
+                          //     }
+                          //   },
+                          // ),
+                          // Transform.rotate(
+                          //   angle: ((_qiblaDirection! - _currentHeading) *
+                          //           (math.pi / 180))
+                          //       .toRad(),
+                          //   child: Container(
+                          //     width: 280,
+                          //     height: 280,
+                          //     alignment: Alignment.topCenter,
+                          //     child: const Text(
+                          //       "🕋",
+                          //       style: TextStyle(fontSize: 24),
+                          //     ),
+                          //   ),
+                          // ),
                         ],
                       ),
-                    if (_qiblaDirection == null) const CircularProgressIndicator(),
+                    if (_qiblaDirection == null)
+                      const CircularProgressIndicator(),
                     const SizedBox(height: 20),
                     if (_qiblaDirection != null &&
                         (_currentHeading - _qiblaDirection!).abs() < 5)
-                      _buildMessageContainer('You are facing the Qibla', Colors.green),
+                      _buildMessageContainer(
+                          'You are facing the Qibla', Colors.green),
                     if (_qiblaDirection != null &&
                         (_currentHeading - _qiblaDirection!).abs() >= 5)
-                      _buildMessageContainer('Rotate your phone until the arrow faces the Kaabah icon.', Colors.red),
+                      _buildMessageContainer(
+                          'Rotate your phone until the arrow faces the Kaabah icon.',
+                          Colors.red),
                   ],
                 ),
         ),
@@ -223,7 +268,8 @@ class _QiblaScreenState extends State<QiblaScreen> {
       ),
       child: Text(
         message,
-        style: TextStyle(fontSize: 18, color: color, fontWeight: FontWeight.bold),
+        style:
+            TextStyle(fontSize: 18, color: color, fontWeight: FontWeight.bold),
         textAlign: TextAlign.center,
       ),
     );

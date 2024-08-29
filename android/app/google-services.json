@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:109929743130:android:10ac91bb3b9665befbe2a3",
+        "mobilesdk_app_id": "1:109929743130:android:3c615494de067f7cfbe2a3",
         "android_client_info": {
-          "package_name": "com.example.quran_new"
+          "package_name": "com.quran.iqra"
         }
       },
       "oauth_client": [],

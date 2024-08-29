@@ -52,7 +52,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCipduIqYyj6q_rfXw03R2ZjvrWfv3TISw',
-    appId: '1:109929743130:android:10ac91bb3b9665befbe2a3',
+    appId: '1:109929743130:android:3c615494de067f7cfbe2a3',
     messagingSenderId: '109929743130',
     projectId: 'quraan-5c4f4',
     storageBucket: 'quraan-5c4f4.appspot.com',
@@ -78,11 +78,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions windows = FirebaseOptions(
     apiKey: 'AIzaSyB-4DaPOx53GmZEFSpGxp9w6vze1V9gPHo',
-    appId: '1:109929743130:web:898637b906876ff0fbe2a3',
+    appId: '1:109929743130:web:5fc58e6cdc2db282fbe2a3',
     messagingSenderId: '109929743130',
     projectId: 'quraan-5c4f4',
     authDomain: 'quraan-5c4f4.firebaseapp.com',
     storageBucket: 'quraan-5c4f4.appspot.com',
-    measurementId: 'G-G2G0T9MSNY',
+    measurementId: 'G-CPLW0YGQHX',
   );
 }

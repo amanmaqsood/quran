@@ -46,13 +46,13 @@ class _MainScreenState extends State<MainScreen> with RouteAware {
   }
 
   @override
-void didChangeDependencies() {
-  super.didChangeDependencies();
-  final ModalRoute? modalRoute = ModalRoute.of(context);
-  if (modalRoute is PageRoute) {
-    routeObserver.subscribe(this, modalRoute as PageRoute<dynamic>);
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final ModalRoute? modalRoute = ModalRoute.of(context);
+    if (modalRoute is PageRoute) {
+      routeObserver.subscribe(this, modalRoute as PageRoute<dynamic>);
+    }
   }
-}
 
   @override
   void dispose() {
@@ -62,8 +62,7 @@ void didChangeDependencies() {
 
   @override
   void didPopNext() {
-    // Called when the user returns to this screen.
-    _loadLastRead(); // Reload last read when coming back to this screen.
+    _loadLastRead();
   }
 
   Future<void> _loadRandomQuote() async {
@@ -194,13 +193,19 @@ void didChangeDependencies() {
                 : [],
       ),
       drawer: Drawer(
-        child: ListView(
+        child: Column(
           children: [
             DrawerHeader(
               decoration: BoxDecoration(
                 color: Colors.purple[600],
               ),
-              child: const Text('Quran App', style: TextStyle(color: Colors.white, fontSize: 24)),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: const Text(
+                  'Iqra - Quran App',
+                  style: TextStyle(color: Colors.white, fontSize: 24),
+                ),
+              ),
             ),
             ListTile(
               leading: const Icon(Icons.filter_1),
@@ -238,7 +243,7 @@ void didChangeDependencies() {
               leading: const Icon(Icons.star),
               title: const Text('Rate Us'),
               onTap: () {
-                _launchUrl('https://play.google.com/store/apps/details?id=com.example.quran_new');
+                _launchUrl('https://play.google.com/store/apps/details?id=com.quran.iqra');
               },
             ),
             ListTile(
@@ -251,6 +256,39 @@ void didChangeDependencies() {
               onTap: () {
                 _launchUrl('https://whatsapp.com/channel/0029Vak4FIf6hENwiYUdmq1I');
               },
+            ),
+            const Spacer(),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton(
+                    icon: const Icon(FontAwesomeIcons.instagram),
+                    onPressed: () {
+                      _launchUrl('https://instagram.com/itsamanmaqsood');
+                    },
+                  ),
+                  IconButton(
+                    icon: const Icon(FontAwesomeIcons.xTwitter),
+                    onPressed: () {
+                      _launchUrl('https://x.com/amanmaqsood');
+                    },
+                  ),
+                  IconButton(
+                    icon: const Icon(FontAwesomeIcons.telegramPlane),
+                    onPressed: () {
+                      _launchUrl('https://t.me/iqra_journey');
+                    },
+                  ),
+                  IconButton(
+                    icon: const Icon(FontAwesomeIcons.whatsapp),
+                    onPressed: () {
+                      _launchUrl('https://whatsapp.com/channel/0029Vak4FIf6hENwiYUdmq1I');
+                    },
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -305,9 +343,9 @@ void didChangeDependencies() {
       margin: const EdgeInsets.all(8.0),
       padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
       decoration: BoxDecoration(
-        color: Colors.grey[100], // Very light background color
+        color: Colors.grey[100],
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: Colors.purple[300]!, width: 1.0), // Light border
+        border: Border.all(color: Colors.purple[300]!, width: 1.0),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

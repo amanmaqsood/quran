@@ -17,7 +17,7 @@ allprojects {
     }
 
     configurations.all {
-        resolutionStrategy.eachDependency {DependencyResolveDetails details ->
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
             if (details.requested.group == 'androidx.customview' && details.requested.name == 'customview') {
                 details.useVersion "1.0.0"
             }

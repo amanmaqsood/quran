@@ -92,6 +92,7 @@ class _SurahListScreenState extends State<SurahListScreen> {
     String fileName = 'surah_${surahIndex + 1}.mp3';
     try {
       String url = await storage.ref('audio/$fileName').getDownloadURL();
+      print('Fetched URL: $url'); // Debug print
       return url;
     } catch (e) {
       print('Error getting audio URL: $e');

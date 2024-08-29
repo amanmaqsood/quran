@@ -204,7 +204,7 @@ class _DuaDetailScreenState extends State<DuaDetailScreen> {
                     dua.arabic,
                     style: const TextStyle(
                       fontSize: 28,
-                      fontWeight: FontWeight.bold,
+                      // fontWeight: FontWeight.bold,
                       fontFamily: 'IndoPak',
                       color: Colors.black87,
                     ),
