@@ -26,7 +26,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen>
   Map<String, String> prayerTimes = {
     'Fajr': 'Loading...',
     'Sunrise': 'Loading...',
-    'Zuhr': 'Loading...', // Using 'Zuhr' instead of 'Dhuhr'
+    'Zuhr': 'Loading...',
     'Asr': 'Loading...',
     'Maghrib': 'Loading...',
     'Isha': 'Loading...',
@@ -44,11 +44,11 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen>
   final List<String> prayerNames = [
     'Fajr',
     'Sunrise',
-    'Zuhr', // Updated
+    'Zuhr',
     'Asr',
     'Maghrib',
     'Isha',
-    'Tahajjud', // Added
+    'Tahajjud', // Added Tahajjud
   ];
   AudioPlayer audioPlayer = AudioPlayer();
   FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =

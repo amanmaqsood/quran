@@ -233,7 +233,25 @@ class _MainScreenState extends State<MainScreen> with RouteAware {
               onTap: () {
                 final box = context.findRenderObject() as RenderBox?;
                 Share.share(
-                  'Check out this amazing Quran app: [App Link Here]',
+                  '''
+📱✨ *Iqra App ke saath Qur'an ka Behtareen Tajurba!* ✨📱
+
+Assalamu Alaikum! 🌙 *Iqra* app ke zariye Qur'an ki duniya mein ghus jayiye - yeh app aapko qirā'at, tarjuma, aur rozana yaad-dihaniyon ka behtareen tajurba faraham karti hai.
+
+🚀 *Features jo aapko pasand aayenge*:
+🕌 Sahih Namaz ke Auqat
+📿 Dhikr aur Duas ka Majmua
+🔍 Qur'an ki Asaan Talaash
+⭐ Apne Pasandeeda Hifz Karein
+🕋 Qibla ka Rukh aur bohot kuch!
+
+Aaj hi download karein aur humare saath apni roohani safar ka aghaz karein! 🌟
+
+🔗 *Download karein yahan se*: https://play.google.com/store/apps/details?id=com.quran.iqra
+
+
+Aayiye, Qur'an ki roshni ko mil kar phailate hain!
+      ''',
                   subject: 'Quran App',
                   sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
                 );
@@ -278,7 +296,7 @@ class _MainScreenState extends State<MainScreen> with RouteAware {
                   IconButton(
                     icon: const Icon(FontAwesomeIcons.telegramPlane),
                     onPressed: () {
-                      _launchUrl('https://t.me/iqra_journey');
+                      _launchUrl('https://t.me/iqraJourney');
                     },
                   ),
                   IconButton(

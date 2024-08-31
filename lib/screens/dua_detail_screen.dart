@@ -4,18 +4,16 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
-import '../data/dua.dart'; 
+import '../data/dua.dart';
 
 class DuaDetailScreen extends StatefulWidget {
-  final Dua dua;
+  final List<Dua> duas;
   final int index;
-  final int total;
 
   const DuaDetailScreen({
     super.key,
-    required this.dua,
+    required this.duas,
     required this.index,
-    required this.total,
   });
 
   @override
@@ -56,6 +54,7 @@ class _DuaDetailScreenState extends State<DuaDetailScreen> {
   }
 
   void _captureAndSharePng() async {
+    final dua = widget.duas[_currentIndex];
     final customWidget = Container(
       color: Colors.black,
       padding: const EdgeInsets.all(16.0),
@@ -64,7 +63,7 @@ class _DuaDetailScreenState extends State<DuaDetailScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            widget.dua.arabic,
+            dua.arabic,
             style: const TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
@@ -75,13 +74,13 @@ class _DuaDetailScreenState extends State<DuaDetailScreen> {
           ),
           const SizedBox(height: 10),
           Text(
-            widget.dua.transliteration,
+            dua.transliteration,
             style: TextStyle(fontSize: 16, color: Colors.grey[300]),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 10),
           Text(
-            widget.dua.translation,
+            dua.translation,
             style: const TextStyle(
               fontSize: 16,
               color: Colors.white,
@@ -90,7 +89,7 @@ class _DuaDetailScreenState extends State<DuaDetailScreen> {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 10),
-          if (widget.dua.hadith != null)
+          if (dua.hadith != null)
             Container(
               padding: const EdgeInsets.all(8.0),
               decoration: BoxDecoration(
@@ -103,7 +102,7 @@ class _DuaDetailScreenState extends State<DuaDetailScreen> {
                   const Text("📓 ", style: TextStyle(fontSize: 20, color: Colors.white)),
                   Expanded(
                     child: Text(
-                      widget.dua.hadith!,
+                      dua.hadith!,
                       style: const TextStyle(fontSize: 14, color: Colors.white),
                       textAlign: TextAlign.center,
                     ),
@@ -124,7 +123,7 @@ class _DuaDetailScreenState extends State<DuaDetailScreen> {
     final imagePath = '$directory/screenshot.png';
     final file = File(imagePath);
     await file.writeAsBytes(imageFile!);
-    Share.shareXFiles([XFile(imagePath)], text: widget.dua.title);
+    Share.shareXFiles([XFile(imagePath)], text: dua.title);
   }
 
   void _updateTitle(int index) {
@@ -137,12 +136,16 @@ class _DuaDetailScreenState extends State<DuaDetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.dua.title),
+        title: Text(widget.duas[_currentIndex].title),
         actions: [
           IconButton(
-            icon: Icon(_favoriteDuas.contains(widget.dua.title) ? Icons.favorite : Icons.favorite_border),
+            icon: Icon(
+              _favoriteDuas.contains(widget.duas[_currentIndex].title)
+                  ? Icons.favorite
+                  : Icons.favorite_border,
+            ),
             onPressed: () {
-              _toggleFavorite(widget.dua.title);
+              _toggleFavorite(widget.duas[_currentIndex].title);
             },
           ),
           IconButton(
@@ -154,19 +157,19 @@ class _DuaDetailScreenState extends State<DuaDetailScreen> {
       body: Column(
         children: [
           LinearProgressIndicator(
-            value: (_currentIndex + 1) / widget.total,
+            value: (_currentIndex + 1) / widget.duas.length,
             backgroundColor: Colors.grey[300],
             valueColor: const AlwaysStoppedAnimation<Color>(Color.fromARGB(255, 77, 145, 138)),
           ),
           Expanded(
             child: PageView.builder(
               controller: _pageController,
-              itemCount: widget.total,
+              itemCount: widget.duas.length,
               onPageChanged: (index) {
                 _updateTitle(index);
               },
               itemBuilder: (context, index) {
-                final dua = widget.dua; // Fetch the dua corresponding to the index
+                final dua = widget.duas[index]; // Fetch the dua corresponding to the index
                 return _buildDuaDetail(context, dua);
               },
               physics: const BouncingScrollPhysics(),
@@ -186,7 +189,7 @@ class _DuaDetailScreenState extends State<DuaDetailScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              '${_currentIndex + 1}/${widget.total}',
+              '${_currentIndex + 1}/${widget.duas.length}',
               style: const TextStyle(fontSize: 18, color: Colors.grey),
               textAlign: TextAlign.center,
             ),
@@ -204,7 +207,6 @@ class _DuaDetailScreenState extends State<DuaDetailScreen> {
                     dua.arabic,
                     style: const TextStyle(
                       fontSize: 28,
-                      // fontWeight: FontWeight.bold,
                       fontFamily: 'IndoPak',
                       color: Colors.black87,
                     ),
