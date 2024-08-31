@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:Iqra/widgets/dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
@@ -12,7 +13,8 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
-import '../data_manager.dart'; // Import DataManager
+import '../data_manager.dart';
+import '../functions/functions.dart'; // Import DataManager
 
 class PrayerTimesScreen extends StatefulWidget {
   const PrayerTimesScreen({super.key});
@@ -54,7 +56,8 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen>
   FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
   Map<String, String> reminderTypeMap = {}; // To store reminder types
-  Map<String, bool> customReminderEnabledMap = {}; // To store custom reminder states
+  Map<String, bool> customReminderEnabledMap =
+      {}; // To store custom reminder states
   Map<String, String> reminderTimeMap = {}; // To store reminder time states
   Map<String, int> reminderMinutesMap = {}; // To store reminder minutes
 
@@ -181,7 +184,8 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen>
               'Asr': timings['Asr'].toString(),
               'Maghrib': timings['Maghrib'].toString(),
               'Isha': timings['Isha'].toString(),
-              'Tahajjud': timings['Lastthird'].toString(), // Map Tahajjud to Lastthird
+              'Tahajjud':
+                  timings['Lastthird'].toString(), // Map Tahajjud to Lastthird
             };
             isLoading = false;
           });
@@ -349,10 +353,14 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen>
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       for (var prayer in prayerNames) {
-        reminderTypeMap[prayer] = prefs.getString('$prayer-reminderType') ?? 'Don\'t send me a reminder';
-        customReminderEnabledMap[prayer] = prefs.getBool('$prayer-customReminderEnabled') ?? false;
-        reminderTimeMap[prayer] = prefs.getString('$prayer-reminderTime') ?? 'Before';
-        reminderMinutesMap[prayer] = prefs.getInt('$prayer-reminderMinutes') ?? 0;
+        reminderTypeMap[prayer] = prefs.getString('$prayer-reminderType') ??
+            'Don\'t send me a reminder';
+        customReminderEnabledMap[prayer] =
+            prefs.getBool('$prayer-customReminderEnabled') ?? false;
+        reminderTimeMap[prayer] =
+            prefs.getString('$prayer-reminderTime') ?? 'Before';
+        reminderMinutesMap[prayer] =
+            prefs.getInt('$prayer-reminderMinutes') ?? 0;
       }
     });
   }
@@ -361,9 +369,11 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen>
     SharedPreferences prefs = await SharedPreferences.getInstance();
     for (var prayer in prayerNames) {
       await prefs.setString('$prayer-reminderType', reminderTypeMap[prayer]!);
-      await prefs.setBool('$prayer-customReminderEnabled', customReminderEnabledMap[prayer]!);
+      await prefs.setBool(
+          '$prayer-customReminderEnabled', customReminderEnabledMap[prayer]!);
       await prefs.setString('$prayer-reminderTime', reminderTimeMap[prayer]!);
-      await prefs.setInt('$prayer-reminderMinutes', reminderMinutesMap[prayer]!);
+      await prefs.setInt(
+          '$prayer-reminderMinutes', reminderMinutesMap[prayer]!);
     }
   }
 
@@ -388,42 +398,50 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen>
                     ListTile(
                       leading: const Icon(Icons.notifications_off),
                       title: const Text('Don\'t send me a reminder'),
-                      trailing: reminderTypeMap[prayerName] == 'Don\'t send me a reminder'
+                      trailing: reminderTypeMap[prayerName] ==
+                              'Don\'t send me a reminder'
                           ? const Icon(Icons.check, color: Colors.green)
                           : null,
                       onTap: () {
                         setState(() {
-                          reminderTypeMap[prayerName] = 'Don\'t send me a reminder';
+                          reminderTypeMap[prayerName] =
+                              'Don\'t send me a reminder';
                         });
                       },
                     ),
                     ListTile(
                       leading: const Icon(Icons.notifications),
                       title: const Text('Send me a reminder'),
-                      trailing: reminderTypeMap[prayerName] == 'Send me a reminder'
-                          ? const Icon(Icons.check, color: Colors.green)
-                          : null,
+                      trailing:
+                          reminderTypeMap[prayerName] == 'Send me a reminder'
+                              ? const Icon(Icons.check, color: Colors.green)
+                              : null,
                       onTap: () {
                         void fun() {
                           setState(() {
                             reminderTypeMap[prayerName] = 'Send me a reminder';
                           });
                         }
+
                         requestNotificationPermission(fun);
                       },
                     ),
                     ListTile(
                       leading: const Icon(Icons.notifications_active),
-                      title: const Text('Send me a reminder and play adhan sound'),
-                      trailing: reminderTypeMap[prayerName] == 'Send me a reminder and play adhan sound'
+                      title:
+                          const Text('Send me a reminder and play adhan sound'),
+                      trailing: reminderTypeMap[prayerName] ==
+                              'Send me a reminder and play adhan sound'
                           ? const Icon(Icons.check, color: Colors.green)
                           : null,
                       onTap: () async {
                         void func() {
                           setState(() {
-                            reminderTypeMap[prayerName] = 'Send me a reminder and play adhan sound';
+                            reminderTypeMap[prayerName] =
+                                'Send me a reminder and play adhan sound';
                           });
                         }
+
                         requestNotificationPermission(func);
                       },
                     ),
@@ -467,7 +485,8 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen>
                                     labelText: 'Enter minutes',
                                   ),
                                   onChanged: (value) {
-                                    reminderMinutesMap[prayerName] = int.tryParse(value) ?? 0;
+                                    reminderMinutesMap[prayerName] =
+                                        int.tryParse(value) ?? 0;
                                   },
                                 ),
                               ),
@@ -479,10 +498,14 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen>
                     ElevatedButton(
                       onPressed: () {
                         void fun() {
-                          _scheduleReminder(prayerName, prayerTime,
-                              reminderTypeMap[prayerName]!, reminderMinutesMap[prayerName]!);
+                          _scheduleReminder(
+                              prayerName,
+                              prayerTime,
+                              reminderTypeMap[prayerName]!,
+                              reminderMinutesMap[prayerName]!);
                           _saveNotificationSettings(); // Save settings after updating
                         }
+
                         requestNotificationPermission(fun);
                         Navigator.pop(context);
                       },
@@ -509,7 +532,8 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen>
 
       if (customReminderEnabledMap[prayerName]! && reminderMinutes != null) {
         if (reminderTimeMap[prayerName] == 'Before') {
-          scheduledTime = scheduledTime.subtract(Duration(minutes: reminderMinutes));
+          scheduledTime =
+              scheduledTime.subtract(Duration(minutes: reminderMinutes));
         } else if (reminderTimeMap[prayerName] == 'After') {
           scheduledTime = scheduledTime.add(Duration(minutes: reminderMinutes));
         }
@@ -576,7 +600,19 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen>
       if (status.isGranted) {
         func();
       } else {
-        if (mounted) Navigator.pop(context);
+        void open() {
+          openAppSettings();
+        }
+
+        showPopDialog(
+            context,
+            'Permission Needed',
+            'You need to allow notification permissions in order to receive Adhan time notifications.',
+            'Cancel',
+            'Allow',
+            open);
+
+        // if (mounted) Navigator.pop(context);
       }
     }
   }
@@ -626,7 +662,8 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen>
                   children: [
                     const Text(
                       'Current Location:',
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                     ),
                     IconButton(
                       icon: const Icon(Icons.edit_location),
@@ -681,12 +718,14 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen>
             ),
           Expanded(
             child: ListView.builder(
-              itemCount: prayerNames.length + 1, // Updated to accommodate the message container
+              itemCount: prayerNames.length +
+                  1, // Updated to accommodate the message container
               itemBuilder: (context, index) {
                 if (index == prayerNames.length) {
                   // Add the new container with the message here
                   return Container(
-                    margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                    margin: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 10),
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
@@ -706,7 +745,8 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen>
                   String prayerName = prayerNames[index];
                   String prayerTime = prayerTimes[prayerName] ?? 'Loading...';
                   return Container(
-                    margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                    margin:
+                        const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
@@ -725,10 +765,12 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen>
                             Text(
                               prayerName,
                               style: TextStyle(
-                                fontWeight: prayerName == 'Sunrise' || prayerName == 'Tahajjud'
+                                fontWeight: prayerName == 'Sunrise' ||
+                                        prayerName == 'Tahajjud'
                                     ? FontWeight.normal
                                     : FontWeight.bold,
-                                color: prayerName == 'Sunrise' || prayerName == 'Tahajjud'
+                                color: prayerName == 'Sunrise' ||
+                                        prayerName == 'Tahajjud'
                                     ? Colors.grey
                                     : Colors.black,
                                 fontSize: 18,
@@ -750,7 +792,25 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen>
                             IconButton(
                               icon: const Icon(Icons.notifications),
                               onPressed: () {
-                                _showReminderPopup(prayerName, prayerTime);
+                                void askPermission() async {
+                                  bool? granted =
+                                      await requestExactAlarmsPermission();
+
+                                  if (granted != null) {
+                                    if (granted) {
+                                      _showReminderPopup(
+                                          prayerName, prayerTime);
+                                    }
+                                  }
+                                }
+
+                                showPopDialog(
+                                    context,
+                                    'Permission Needed',
+                                    'You need to give Alaram & Clock Permssion in order to remind you Adhan time at Exact time.',
+                                    'Cancel',
+                                    'Ok',
+                                    askPermission);
                               },
                             ),
                           ],
