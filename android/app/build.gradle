@@ -32,7 +32,11 @@ android {
         applicationId "com.quran.iqra"
         minSdkVersion 21
         targetSdkVersion 34
+<<<<<<< HEAD
         versionCode 8 // Set the next available version code here
+=======
+        versionCode 4 // Set the next available version code here
+>>>>>>> fcef76b896ecde6a5c697f55f88a859100fe09b6
         versionName "1.0"
     }
 
