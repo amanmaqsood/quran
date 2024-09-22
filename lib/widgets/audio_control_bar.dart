@@ -10,10 +10,11 @@ class AudioControlBar extends StatelessWidget {
   final VoidCallback onSeekBackward;
   final VoidCallback onSeekForward;
   final String surahName;
-  final int verseNumber;
-  final bool isLoading; // Add this parameter
+  final int verseNumber; // Dynamic verse number updated in real-time
+  final bool isLoading;
 
-  const AudioControlBar({super.key, 
+  const AudioControlBar({
+    super.key, 
     required this.audioPlayer,
     required this.duration,
     required this.position,
@@ -23,7 +24,7 @@ class AudioControlBar extends StatelessWidget {
     required this.onSeekForward,
     required this.surahName,
     required this.verseNumber,
-    required this.isLoading, // Add this parameter
+    required this.isLoading,
   });
 
   @override
@@ -41,7 +42,7 @@ class AudioControlBar extends StatelessWidget {
                 style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               Text(
-                'Verse: $verseNumber',
+                'Verse: $verseNumber',  // Real-time verse update
                 style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ],
@@ -62,7 +63,7 @@ class AudioControlBar extends StatelessWidget {
                 onPressed: onSeekBackward,
               ),
               isLoading
-                  ? const CircularProgressIndicator() // Show loader while loading
+                  ? const CircularProgressIndicator()
                   : IconButton(
                       icon: Icon(audioPlayer.state == PlayerState.playing ? Icons.pause : Icons.play_arrow),
                       onPressed: audioPlayer.state == PlayerState.playing ? onPause : onResume,

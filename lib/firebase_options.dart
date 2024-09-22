@@ -85,4 +85,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'quraan-5c4f4.appspot.com',
     measurementId: 'G-CPLW0YGQHX',
   );
+
 }

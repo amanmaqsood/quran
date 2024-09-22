@@ -69,15 +69,14 @@ class DhikrDuaSearchDelegate extends SearchDelegate<Dua?> {
           onTap: () {
             close(context, result); // Return the selected Dua
             Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => DuaDetailScreen(
-                  dua: result,
-                  index: allDuas.indexOf(result),
-                  total: allDuas.length,
-                ),
-              ),
-            );
+  context,
+  MaterialPageRoute(
+    builder: (context) => DuaDetailScreen(
+      duas: [result], // Pass the search result in a list
+      index: 0,       // Single dua, so the index is 0
+    ),
+  ),
+);
           },
         );
       },

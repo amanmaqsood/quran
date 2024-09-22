@@ -22,15 +22,14 @@ class DuaListScreen extends StatelessWidget {
             title: Text('${index + 1}. ${duas[index].title}'),
             onTap: () {
               Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DuaDetailScreen(
-                    dua: duas[index],
-                    index: index,
-                    total: duas.length,
-                  ),
-                ),
-              );
+  context,
+  MaterialPageRoute(
+    builder: (context) => DuaDetailScreen(
+      duas: duas,   // Pass the entire list of duas
+      index: index, // Pass the index of the selected dua
+    ),
+  ),
+);
             },
           );
         },

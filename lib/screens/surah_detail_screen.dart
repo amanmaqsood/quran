@@ -26,13 +26,14 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
   final AudioPlayer _audioPlayer = AudioPlayer();
   bool _isPlaying = false;
   bool _isLoading = false;
-  final int _playingIndex = -1;
+  int _playingIndex = -1;
+  int _globalVerseIndex = 0;  // Global verse index to track across files
   final ScrollController _scrollController = ScrollController();
   Set<String> _favoriteVerses = {};
   Set<int> _favoriteSurahs = {};
   ScreenshotController screenshotController = ScreenshotController();
   String _currentSurahTitle = '';
-  final bool _deepMeaningExpanded = false; // Track deep meaning state
+  final bool _deepMeaningExpanded = false;
   Duration _duration = const Duration();
   Duration _position = const Duration();
   String _currentSurahName = '';
@@ -260,10 +261,13 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
     if (mounted) {
       setState(() {
         _isLoading = true;
+        _globalVerseIndex = verseIndex; // Track the global verse index
       });
     }
-    String audioPath = 'surah_${surahIndex + 1}.mp3';
-    String url = await _getAudioUrl(audioPath);
+
+    String audioFileName = _getAudioFileName(surahIndex, verseIndex);
+    String url = await _getAudioUrl(audioFileName);
+
     if (url.isNotEmpty) {
       int startTimestamp = widget.surahs[surahIndex].verses[verseIndex].audioTimestamp ?? 0;
       await _audioPlayer.setSourceUrl(url);
@@ -285,18 +289,22 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
     }
   }
 
+  String _getAudioFileName(int surahIndex, int verseIndex) {
+    const int versesPerFile = 20;
+    int fileNumber = (verseIndex ~/ versesPerFile) + 1;
+    return 'surah_${surahIndex + 1}_$fileNumber.mp3';
+  }
+
   _saveLastRead(int surahIndex, int ayatIndex) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('lastReadSurah', widget.surahs[surahIndex].name);
     prefs.setInt('lastReadAyat', ayatIndex);
-    print('Saved last read: ${widget.surahs[surahIndex].name}, Ayat $ayatIndex');
   }
 
   _updateLastReadOnTap(int surahIndex, int ayatIndex) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('lastReadSurah', widget.surahs[surahIndex].name);
     prefs.setInt('lastReadAyat', ayatIndex);
-    print('Updated last read on tap: ${widget.surahs[surahIndex].name}, Ayat $ayatIndex');
   }
 
   _updateCurrentVerse() {
@@ -307,7 +315,7 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
             _position.inSeconds < surah.verses[i + 1].audioTimestamp!) {
           if (mounted) {
             setState(() {
-              _currentVerseNumber = i + 1;
+              _currentVerseNumber = _globalVerseIndex + 1;  // Use global verse index here
             });
           }
           break;
@@ -316,13 +324,13 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
         if (_position.inSeconds >= surah.verses[i].audioTimestamp!) {
           if (mounted) {
             setState(() {
-              _currentVerseNumber = i + 1;
+              _currentVerseNumber = _globalVerseIndex + 1;  // Use global verse index here
             });
           }
         }
       }
     }
-    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -341,12 +349,12 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
                 _playSurahAudio(i);
               },
             ),
-            if (i != 0 && i != 8) // Show Bismillah calligraphy except for Surah Fatiha and Surah Tawba
+            if (i != 0 && i != 8)
               Card(
                 margin: const EdgeInsets.all(8.0),
                 child: ListTile(
                   title: Image.asset(
-                    'assets/bismillah_calligraphy.png', // Use the calligraphy image
+                    'assets/bismillah_calligraphy.png',
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -441,13 +449,14 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
                 _audioPlayer.seek(Duration(seconds: _position.inSeconds + 10));
               },
               surahName: _currentSurahName,
-              verseNumber: _currentVerseNumber,
+              verseNumber: _currentVerseNumber,  // Display the global verse number
               isLoading: _isLoading,
             )
           : const SizedBox.shrink(),
     );
   }
 }
+
 
 class VerseContainer extends StatelessWidget {
   final Verse verse;
@@ -459,7 +468,8 @@ class VerseContainer extends StatelessWidget {
   final VoidCallback? onDropdownToggle;
   final bool deepMeaningExpanded;
 
-  const VerseContainer({super.key, 
+  const VerseContainer({
+    super.key,
     required this.verse,
     required this.verseNumber,
     required this.isFavorite,
@@ -481,7 +491,6 @@ class VerseContainer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Arabic text
           Align(
             alignment: Alignment.centerRight,
             child: Directionality(
@@ -494,30 +503,25 @@ class VerseContainer extends StatelessWidget {
             ),
           ),
           const Divider(thickness: 1),
-          // Transliteration
           Text(
             verse.transliteration,
             style: const TextStyle(fontSize: 16, color: Colors.black54),
             textAlign: TextAlign.left,
           ),
           const Divider(thickness: 1),
-          // Translation
           Text(
             verse.translation,
             style: const TextStyle(fontSize: 16, color: Colors.black54),
             textAlign: TextAlign.left,
           ),
           const Divider(thickness: 1),
-          // Verse number and icons
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // Verse number
               Text(
                 'Verse $verseNumber',
                 style: const TextStyle(color: Colors.black45),
               ),
-              // Icons
               Row(
                 children: [
                   IconButton(
@@ -562,38 +566,39 @@ class VerseContainer extends StatelessWidget {
   }
 }
 
-class AudioPlayerControl extends StatelessWidget {
-  final AudioPlayer audioPlayer;
-  final VoidCallback onPause;
-  final VoidCallback onResume;
 
-  const AudioPlayerControl({super.key, 
-    required this.audioPlayer,
-    required this.onPause,
-    required this.onResume,
-  });
+// class AudioPlayerControl extends StatelessWidget {
+//   final AudioPlayer audioPlayer;
+//   final VoidCallback onPause;
+//   final VoidCallback onResume;
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        IconButton(
-          icon: const Icon(Icons.pause),
-          onPressed: onPause,
-        ),
-        StreamBuilder<Duration>(
-          stream: audioPlayer.onPositionChanged,
-          builder: (context, snapshot) {
-            final duration = snapshot.data ?? Duration.zero;
-            return Text('${duration.inMinutes}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}');
-          },
-        ),
-        IconButton(
-          icon: const Icon(Icons.play_arrow),
-          onPressed: onResume,
-        ),
-      ],
-    );
-  }
-}
+//   const AudioPlayerControl({super.key, 
+//     required this.audioPlayer,
+//     required this.onPause,
+//     required this.onResume,
+//   });
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Row(
+//       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//       children: [
+//         IconButton(
+//           icon: const Icon(Icons.pause),
+//           onPressed: onPause,
+//         ),
+//         StreamBuilder<Duration>(
+//           stream: audioPlayer.onPositionChanged,
+//           builder: (context, snapshot) {
+//             final duration = snapshot.data ?? Duration.zero;
+//             return Text('${duration.inMinutes}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}');
+//           },
+//         ),
+//         IconButton(
+//           icon: const Icon(Icons.play_arrow),
+//           onPressed: onResume,
+//         ),
+//       ],
+//     );
+//   }
+// }

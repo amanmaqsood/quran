@@ -263,15 +263,14 @@ class _FavouritesPageState extends State<FavouritesPage> {
                     },
                     onTap: () {
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => DuaDetailScreen(
-                            dua: dua,
-                            index: 0,
-                            total: 1,
-                          ),
-                        ),
-                      );
+  context,
+  MaterialPageRoute(
+    builder: (context) => DuaDetailScreen(
+      duas: [dua], // Pass the favorite dua in a list
+      index: 0,    // Since it's a single dua, the index is 0
+    ),
+  ),
+);
                     },
                   );
                 }

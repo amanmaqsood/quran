@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     print('Building MyApp'); // Debug print
     return MaterialApp(
-      title: 'Iqra',
+      title: 'Quran App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

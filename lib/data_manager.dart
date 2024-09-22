@@ -66,20 +66,22 @@ class DataManager {
         _date!.day == date.day;
   }
 
-  // New methods for saving and retrieving notification settings
-  Future<void> saveNotificationSettings(Map<String, bool> settings) async {
+  // Updated methods for saving and retrieving individual notification settings
+  Future<void> saveNotificationSettings(String prayer, String reminderType, bool customReminderEnabled, String reminderTime, int reminderMinutes) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    settings.forEach((prayer, isEnabled) {
-      prefs.setBool('notification_$prayer', isEnabled);
-    });
+    await prefs.setString('reminderType_$prayer', reminderType);
+    await prefs.setBool('customReminderEnabled_$prayer', customReminderEnabled);
+    await prefs.setString('reminderTime_$prayer', reminderTime);
+    await prefs.setInt('reminderMinutes_$prayer', reminderMinutes);
   }
 
-  Future<Map<String, bool>> getNotificationSettings(List<String> prayerNames) async {
+  Future<Map<String, dynamic>> getNotificationSettings(String prayer) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    Map<String, bool> settings = {};
-    for (var prayer in prayerNames) {
-      settings[prayer] = prefs.getBool('notification_$prayer') ?? false;
-    }
-    return settings;
+    return {
+      'reminderType': prefs.getString('reminderType_$prayer') ?? 'Don\'t send me a reminder',
+      'customReminderEnabled': prefs.getBool('customReminderEnabled_$prayer') ?? false,
+      'reminderTime': prefs.getString('reminderTime_$prayer') ?? 'Before',
+      'reminderMinutes': prefs.getInt('reminderMinutes_$prayer') ?? 0,
+    };
   }
 }
